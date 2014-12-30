@@ -1,0 +1,19 @@
+
+bbs - a simple implementation of the Blum, Blum, and Shub random
+      number generation algorithm as described in Bruce Schneier's
+      book Applied Cryptography 2nd Ed (1996)
+
+From the book:
+    Find two large prime numbers, (p) and (q), which are congruent to
+    3 modulo 4.  The product of these numbers, (n), is a blum integer.
+    Choose another random integer, (x), which is relatively prime to
+    (n).  Compute x[0] = (x^2) % n.  x[0] is the seed for the generator.
+    now we can start computing bits.  The (i)th pseudo-random bit is the
+    least significant bit of x[i] = (x[i-1] ^ 2) % n.
+
+    The security of this scheme rests on the difficulty of factoring
+    (n).  You can make (n) public so that anyone can generate bits.
+    However, unless a cryptanalyst can factor (n), he can never predict
+    the output of the generator - not even with a statement like:
+    "the next bit has a 51 percent change of being a 1".
+
